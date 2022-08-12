@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.app-wrapper {
+    position: relative;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    color: limegreen;
+}
+
+
+
+.app-inner {
+    position: absolute;
+    top: 0;
+}
+
+.app-inner>* {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    align-content: center;
+    align-self: stretch;
+    text-align: center;
+    background-color: rgba(0, 0, 255, 0.05);
+}
+
+.header {
+    height: 200px;
+}
+
+.content {
+    height: calc(100vh - 450px);
+}
+
+.footer {
+    height: 250px;
+    background: radial-gradient(
+            ellipse at bottom,
+            rgba(14, 15, 21, 0.4) 0%,
+            rgba(20, 30, 43, 0.2) 50%,
+            rgba(14, 15, 21, 0.4) 100%);
+    overflow: hidden;
+}
+
+.timer-wrapper {
+/*background-color: rgba(25, 25, 59, 0.05);*/
+    padding: 15px;
+}
+
+.timer {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 25px;
+    padding: 10px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.box-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 15px;
+    width: 130px;
+}
+
+.box-digits {
+    font-size: 36px;
+    background: linear-gradient(0.25turn,
+    rgba(37, 42, 35, 0.2),
+    rgba(38, 59, 41, 0.5),
+    rgba(37, 42, 35, 0.2));
+}
+
+.hours-box {
+}
+
+.minutes-box {
+}
+
+.seconds-box {
+}
+
+.milisec-box .box-digits {
+    font-size: 24px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.controls-btn {
+    background-color: #19193b;
+    color: darkcyan;
+    /*border: 1px solid darkcyan;*/
+    cursor: pointer;
+    font-size: large;
+    border-radius: 10px;
+    padding: 15px;
+    min-height: 30px;
+    min-width: 120px;
+    transition: all 0.2s ease-in-out;
+}
+
+.controls-btn.set-btn {
+    background-color: #1c545b;
+    padding: 15px 5px;
+    min-width: 55px;
+}
+
+.controls-btn:hover {
+    background-color: darkcyan;
+    color:  #19193b ;
+    border-color:  #19193b ;
+}
+
+.controls-btn-active {
+    background-color: forestgreen;
+    color: greenyellow;
+    border-color: greenyellow;
+}
+
+.controls-btn-active:hover {
+    background-color: limegreen;
+    color: greenyellow;
+    border-color: greenyellow;
+}
+
+.stop-btn:active {
+    background-color: red;
+    color: black;
+    border-color: black;
+}
+
+
+
