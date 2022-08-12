@@ -18,41 +18,31 @@ let currentScore = 600;
 const render = score => {
     minutesCount = (Math.trunc(score  / 60)).toString() || '00';
     secondsCount = (Math.trunc(score - minutesCount * 60)).toString() || '00';
-
-    seconds.textContent = secondsCount.length < 2 ? '0' + secondsCount : secondsCount;
     minutes.textContent = minutesCount.length < 2 ? '0' + minutesCount : minutesCount;
-
-    if (score === 1) {
-        sound.play();
-    }
+    seconds.textContent = secondsCount.length < 2 ? '0' + secondsCount : secondsCount;
+    if (score === 1) { sound.play() }
 };
 
 render(currentScore);
 
 const runtimeStepEngine = () => {
-    if (currentScore > 0) {
-        render(--currentScore);
-    }
+    if (currentScore > 0) { render(--currentScore) }
     if (currentScore === 0) {
         currentScore = 600;
         render(--currentScore);
     }
 };
 
-const writeReport = (minutes, seconds, message) => {
-    scoreWrapper.innerText += `${
-        minutes.length < 2 ?  '0' + minutes : minutes}:${
-        seconds.length < 2 ?  '0' + seconds : seconds} - ${message} \n`;
+const writeReport = (message) => {
+    scoreWrapper.innerText += `${new Date().toLocaleString()} ${message} \n`;
 }
 
 const startBtnHandler = () => {
-    if (currentScore === 0) {
-        currentScore = 600;
-    };
+    if (currentScore === 0) { currentScore = 600 }
     timerId = setInterval(runtimeStepEngine, 1000);
     startBtn.classList.add('controls-btn-active');
     pauseBtn.classList.remove('controls-btn-active');
-    writeReport(minutesCount, secondsCount, 'start');
+    writeReport(' start');
 };
 
 const pauseBtnHandler = () => {
@@ -60,7 +50,7 @@ const pauseBtnHandler = () => {
     startBtn.addEventListener('click', startBtnHandler, {once: true});
     startBtn.classList.remove('controls-btn-active');
     pauseBtn.classList.add('controls-btn-active');
-    writeReport(minutesCount, secondsCount, 'pause');
+    writeReport(' pause');
 };
 
 const stopBtnHandler = () => {
@@ -70,12 +60,12 @@ const stopBtnHandler = () => {
     startBtn.addEventListener('click', startBtnHandler, {once: true});
     startBtn.classList.remove('controls-btn-active');
     pauseBtn.classList.remove('controls-btn-active');
-    writeReport(minutesCount, secondsCount, 'stop');
+    writeReport(' stop');
 };
 
 const setArrayHandler = e => {
     currentScore += 60 * e.target.innerText;
-    writeReport(minutesCount, secondsCount, `${e.target.innerText} minutes`);
+    writeReport(`${e.target.innerText} minutes`);
     render(currentScore);
 }
 

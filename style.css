@@ -112,7 +112,6 @@ body {
 .controls-btn {
     background-color: #19193b;
     color: darkcyan;
-    /*border: 1px solid darkcyan;*/
     cursor: pointer;
     font-size: large;
     border-radius: 10px;
@@ -124,8 +123,8 @@ body {
 
 .controls-btn.set-btn {
     background-color: #1c545b;
-    padding: 15px 5px;
-    min-width: 55px;
+    padding: 15px 12px;
+    min-width: 50px;
 }
 
 .controls-btn:hover {
